@@ -1,0 +1,12 @@
+{
+	"compilerOptions": {
+		"target": "ES5",
+		"module": "none",
+		"outDir": "dist",
+		"typeRoots": ["types"],
+		"lib": ["ES2015"]
+	},
+	"include": [
+		"src/*"
+	]
+}
