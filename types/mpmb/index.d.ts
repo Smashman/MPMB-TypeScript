@@ -481,7 +481,7 @@ declare const enum SpellLevel {
 	Fifth,
 	Sixth,
 	Seventh,
-	Eight,
+	Eighth,
 	Ninth
 }
 
@@ -493,6 +493,7 @@ declare const enum SpellSchool {
 	Evocation = "Evoc",
 	Illusion = "Illus",
 	Necromancy = "Necro",
+	Transmutation = "Transmutation"
 }
 
 declare const enum Size {
@@ -518,7 +519,10 @@ declare const enum RecoveryType {
 declare const enum SpellCastTime {
 	Action = "1 a",
 	BonusAction = "1 bns",
-	Reaction = "1 rea"
+	Reaction = "1 rea",
+	Round = "1 rnd",
+	Minute = "1 min",
+	Hour = "1 h"
 }
 
 declare const enum Lifestyle {
