@@ -71,7 +71,7 @@ interface Race extends MPMBObject {
 	trait: string;
 	abilitySave?: AbilityScoreNumber;
 	variants?: string[];
-	features?: { [ key: string ]: Omit<Feature, 'description'> };
+	features?: { [ key: string ]: Feature };
 }
 
 interface SubClass extends MPMBObject {
@@ -85,7 +85,7 @@ interface SubClass extends MPMBObject {
 	spellcastingKnown?: SpellCastingKnown;
 	spellcastingList?: SpellCastingList;
 	spellcastingExtra?: string[];
-	features?: { [ key: string ]: Feature };
+	features?: { [ key: string ]: ClassFeature };
 }
 
 interface Feat extends MPMBObject {
@@ -228,9 +228,12 @@ type SpellCastingTable = Tuple<SpellCastingBySpellLevel, 20>;
 interface Feature extends MPMBObject {
 	name: string;
 	minlevel: CharacterLevel;
-	description: string;
 	choices?: string[];
 	choicesNotInMenu?: boolean;
+}
+
+interface ClassFeature extends Feature {
+	description: string;
 }
 
 type Damage = [
@@ -275,8 +278,8 @@ interface LimitedFeature {
 	additional: string;
 }
 
-type StringPerLevel = Tuple<string, 20> | string[];
-type NumberPerLevel = Tuple<number, 20> | number[];
+type StringPerLevel = Tuple<string, 20>;
+type NumberPerLevel = Tuple<number, 20>;
 
 type Recovery = RecoveryType | string;
 
@@ -314,7 +317,7 @@ type Vision = [
 
 interface SaveText {
 	text?: string[];
-	immune?: Array<DamageType | string>;
+	immune?: (DamageType | string)[];
 	adv_vs?: string[];
 }
 
@@ -643,20 +646,6 @@ declare const CurrentUpdates: {
 	notesChanges: string[],
 	skillStrOld: string
 };
-
-/*
-  Adobe interface declarations
-*/
-interface Field {
-	readonly: boolean;
-	value: string | number;
-	setAction(trigger: string, action: string): void;
-	page: number;
-}
-declare const tDoc: {
-	getField(field: FieldIdentifier): Field;
-};
-type FieldIdentifier = string;
 
 /*
 	Helper types
