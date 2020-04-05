@@ -70,14 +70,15 @@ var rainbowElfObject = {
             source: ["SV:LL", 31],
             popupName: "Rainbow Step effects table",
             page3notes: true,
+            additional: "DC 8 + Cha mod + Prof",
             note: [
                 "d6 Effect",
                 "1 After using Rainbow Step, each creature of my choice within 5 ft of me takes fire dmg\n      This fire damage is equal to my Charisma modifier (minimum 1)",
                 "2 After using Rainbow Step, each crea. of my choice within 5 ft of me takes radiant dmg\n      This radiant damage is equal to my Charisma modifier (minimum 1)",
-                "3  After using Rainbow Step, up to two creatures of your choice within 10 feet of you must succeed on a Wisdom saving throw or be charmed by you for 1 minute, or until you or any of your companions do any damage to it.",
-                "4  After using Rainbow Step, up to two creatures of your choice within 10 feet of you must succeed on a Wisdom saving throw or be frightened by you until the end of your next turn.",
+                "3 After using Rainbow Step, up to 2 creature of my choice in 10 ft must make a Wis save\n      On a fail the creatures are charmed for 1 min or until allies or I damage them",
+                "4 After using Rainbow Step, up to 2 creature of my choice in 10 ft must make a Wis save\n      On a fail the creatures are frightened of me until the end of my next turn",
                 "5 After using Rainbow Step, each creature of my choice within 5 ft of me takes cold dmg\n      This cold damage is equal to my Charisma modifier (minimum 1)",
-                "6  After using Rainbow Step, each creature of your choice that you can see within 5 feet must succeed on a Constitution saving throw or take poison damage equal to your Charisma modifier (minimum of 1 damage). If the targeted creature fails the saving throw, the creature is poisoned, suffers the damage, and at the end of its turn must succeed on a Constitution saving throw (DC 10) or remain poisoned until the end of its next turn."
+                "6 After using Rainbow Step, each crea. of my choice, I can see in 5 ft must make Con save\n      On a fail, the creatures take poison damage equal to my Charisma modifier (minimum 1)\n      Additionally they are poisoned and must make a DC 10 Con save at the end of its turn\n      On a success, they are no longer poisoned\n      On a fail, the creatures remain poisoned until the end of their next turn."
             ]
         }
     ]
