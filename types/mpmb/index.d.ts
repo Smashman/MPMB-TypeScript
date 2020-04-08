@@ -26,7 +26,7 @@ interface MPMBObject {
 	shieldAdd?: string | [string, number, number];
 	ammoOptions?: Ammo[];
 	armorOptions?: Armor[];
-	weaponOptions?: Weapon[];
+	weaponOptions?: Partial<Weapon>[];
 	/** Array of Damage type or tuple of damage type and resistance condition */
 	dmgres?: (DamageType | [DamageType, string])[];
 	savetxt?: SaveText;
@@ -206,6 +206,31 @@ interface Weapon extends MPMBObject {
 	ammo?: AmmoType;
 	SpellsList?: string;
 	baseWeapon?: string;
+}
+
+interface MagicItem extends MPMBObject {
+	name: string;
+	nameAlt?: string;
+	nameTest?: string | RegExp;
+	source: SourceIdentifier[];
+	type: MagicItemType | string;
+	rarity: MagicItemRarity;
+	attunement?: boolean;
+	weight?: number;
+	description: string;
+	descriptionLong?: string;
+	descriptionFull?: string;
+	notLegalAL?: boolean;
+	magicItemTable?: ('A' | 'B' | 'C' | 'D' | 'E' | 'F' | 'G' | 'H' | 'I')[];
+	storyItemAL?: boolean;
+	extraTooltip?: string;
+	prerequisite?: string;
+	prereqeval?: Eval;
+	allowDuplicates?: boolean;
+	calculate?: string;
+	chooseGear?: any;
+	choice?: string[];
+	selfChoosing?(): string;
 }
 
 // Misc types
@@ -597,6 +622,28 @@ declare const enum AmmoType {
 	Vial = "vial"
 }
 
+declare const enum MagicItemType {
+	WondrousItem = "wondrous item",
+	Armor = "armor",
+	Shield = "shield",
+	Weapon = "weapon",
+	Ring = "ring",
+	Rod = "rod",
+	Staff = "staff",
+	Wand = "wand",
+	Potion = "potion",
+	Scroll = "scroll"
+}
+
+declare const enum MagicItemRarity {
+	Common = "common",
+	Uncommon = "uncommon",
+	Rare = "rare",
+	VeryRare = "very rare",
+	Legendary = "legendary",
+	Artifact = "artifact"
+}
+
 /*
 	Interface declarations
 */
@@ -629,6 +676,7 @@ declare const SpellsList: { [key: string]: Spell };
 declare const BackgroundList: { [key: string]: Background };
 declare const BackgroundFeatureList: { [key: string]: BackgroundFeature };
 declare const CreatureList: { [key: string]: Creature };
+declare const MagicItemsList: { [key: string]: MagicItem };
 
 declare const CurrentRace: Race & {
 	known : string,
