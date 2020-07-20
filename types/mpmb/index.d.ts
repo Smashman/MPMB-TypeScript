@@ -7,7 +7,7 @@
 interface MPMBObject {
 	source: SourceIdentifier[];
 	action?: Action[];
-	usages?: number | string | NumberPerLevel;
+	usages?: number | string | NumberPerLevel | StringPerLevel;
 	usagescalc?: string | StringPerLevel;
 	recovery?: Recovery;
 	altResource?: string | StringPerLevel;
@@ -262,7 +262,7 @@ interface ClassFeature extends Feature {
 }
 
 type Damage = [
-	number, // Number of die
+	number | 'C', // Number of die (or cantrip scaling)
 	number, // Size of die
 	DamageType
 ]
@@ -299,8 +299,8 @@ interface LimitedFeature {
 	name: string;
 	usages: number;
 	recovery: Recovery;
-	usagescalc: string;
-	additional: string;
+	usagescalc?: string;
+	additional?: string;
 }
 
 type StringPerLevel = Tuple<string, 20>;
@@ -657,6 +657,7 @@ declare function isTemplVis(tempNm: string, returnPrefix?: string): [boolean, st
 declare function DoTemplate(tempNm: string, AddRemove: 'Add' | 'Remove' | 'RemoveAll', removePrefix?: string, GoOn?: boolean): number;
 declare function PickDropdown(field: FieldIdentifier, FldValue: any): void;
 declare function desc(lines: string[]): string;
+declare function toUni(input: string): string;
 
 declare const AbilityScores: {
 	abbreviations : AbilityScoreAbbr[]
@@ -664,6 +665,7 @@ declare const AbilityScores: {
 
 declare const typePF: boolean;
 declare const levels: number[];
+declare const AtHigherLevels: string;
 
 declare function RequiredSheetVersion(version: number): void;
 declare function AddSubClass(iClass: CharacterClass, subClassName: string, subclassObj: SubClass): void;
@@ -677,6 +679,7 @@ declare const BackgroundList: { [key: string]: Background };
 declare const BackgroundFeatureList: { [key: string]: BackgroundFeature };
 declare const CreatureList: { [key: string]: Creature };
 declare const MagicItemsList: { [key: string]: MagicItem };
+declare const WeaponsList: { [key: string]: Weapon };
 
 declare const CurrentRace: Race & {
 	known : string,

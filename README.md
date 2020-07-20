@@ -11,6 +11,6 @@ Node and NPM are required
 ## Usage
 
 1. Place any TypeScript files in `src/`
-2. Execute `npm run tsc` to transpile TypeScript files into a JavaScript file
+2. Execute `npm run build` to transpile TypeScript files into a JavaScript file
 3. Find transpiled files in `dist/`
 

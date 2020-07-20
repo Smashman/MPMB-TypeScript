@@ -4,7 +4,7 @@
 		"module": "none",
 		"outDir": "dist",
 		"typeRoots": ["types"],
-		"lib": ["ES2015"]
+		"lib": ["ES5"]
 	},
 	"include": [
 		"src/*"
