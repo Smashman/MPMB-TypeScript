@@ -274,7 +274,7 @@ interface ExtraAC {
 	name?: string;
 	magic?: boolean;
 	text: string;
-	stopeval(v: ArmorInformation): boolean;
+	stopeval?(v: ArmorInformation): boolean;
 }
 
 interface CalcChanges {
@@ -412,7 +412,30 @@ interface ToNotesPage {
 type HitDice = [
 	number, // Number
 	number  // Die size
-]
+];
+
+type ParsedClass = [
+	string, // Class string
+	number  // Class level
+];
+
+interface KnownClass {
+	name: string;
+	level: CharacterLevel;
+	subclass: string;
+	string: string;
+}
+
+interface OldClass {
+	classlevel: CharacterLevel;
+	subclass: string;
+	fullname: string;
+}
+
+interface SpellcastLvl {
+	default: CharacterLevel;
+	warlock: CharacterLevel;
+}
 
 /*
 	Enums
@@ -661,6 +684,20 @@ declare function toUni(input: string): string;
 
 declare const AbilityScores: {
 	abbreviations : AbilityScoreAbbr[]
+};
+declare const classes: {
+	field: string,
+	parsed: ParsedClass[],
+	known: { [key: string]: KnownClass},
+	old: { [key: string]: OldClass},
+	hd: HitDice[],
+	hp: number,
+	attacks: number,
+	totallevel: CharacterLevel,
+	primary: string,
+	oldprimary: string,
+	spellcastlvl: SpellcastLvl,
+	oldspellcastlvl: SpellcastLvl
 };
 
 declare const typePF: boolean;
